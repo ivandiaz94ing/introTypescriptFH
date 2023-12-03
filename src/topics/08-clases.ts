@@ -2,32 +2,49 @@ export class Persona{
 
     constructor(
         public nombre: string,
-        private adress: string = 'Not Adress'
-        ){ }
-
-    
+        public poder: number,
+        public adress: string = 'Not Adress'
+        ){ }   
 }
 
-const iromman = new Persona('Iroman');
+// const iromman = new Persona('Iroman');
 
-console.log(iromman.nombre);
-console.log(iromman.adress);
+// console.log(iromman.nombre);
+// console.log(iromman.adress);
 
 //HERENCIA DE CLASES
-export class Heroe extends Persona{
+// export class Heroe extends Persona{
+//     constructor(
+//         public alterEgo: string,
+//         public edad: number,
+//         public nombreReal: string
+//     ){
+//         super(nombreReal, 'New York');
+//     }
+// }
+
+// const spiderman = new Heroe('Spiderman',30,'Peter Parker');
+// console.log(spiderman);
+
+
+//COMPSOICION DE CLASES
+
+export class Heroe{
     constructor(
-        public alterEgo: string,
+        public apodo: string,
         public edad: number,
-        public nombreReal: string
+        public nombreReal: string,
+        public person: Persona,
+
     ){
-        super(nombreReal, 'New York');
+        //this.persona = new Persona(nombreReal);
     }
 }
 
-const spiderman = new Heroe('Spiderman',30,'Peter Parker');
+const tony = new Persona('Tony',500);
+const spiderman = new Heroe('Ironman',30,'Tony Stark',tony);
+
 console.log(spiderman);
-
-
 
 
 
